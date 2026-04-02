@@ -4,39 +4,75 @@
     "id": "example-algorithms",
     "title": "Example Algorithms Course",
     "icon": "🧠",
-    "description": "A minimal sample course package for the open course repository.",
+    "description": "A minimal but valid sample course package for the public open course repository.",
     "version": "1.0.0"
   },
   "patterns": [
     {
-      "id": "example-algorithms-intro",
-      "title": "Algorithm Warmup",
+      "id": "example-binary-search",
+      "title": "Binary Search Basics",
       "category": "example-algorithms",
-      "icon": "🔁",
-      "description": "A small example pattern used to validate repository structure.",
+      "icon": "🔍",
+      "description": "Learn the binary search pattern with a small, importable example.",
       "prerequisites": [],
       "difficulty": "beginner",
       "version": "1.0.0",
       "lessons": [
         {
-          "id": "example-algorithms-intro-lesson-1",
-          "patternId": "example-algorithms-intro",
-          "title": "Recognize a Loop",
+          "id": "example-binary-search-1",
+          "patternId": "example-binary-search",
+          "title": "Binary Search Warmup",
           "order": 1,
-          "intro": "This lesson exists only as a sample payload for repository validation.",
+          "intro": "Binary search repeatedly halves a sorted search space. This sample lesson is intentionally small but still satisfies the Mokumoku schema requirements.",
           "questions": [
             {
-              "id": "example-algorithms-q1",
+              "id": "ex-1-q1",
               "type": "multiple-choice",
-              "prompt": "Which pattern usually repeats work until a condition is met?",
-              "explanation": "Loops repeat work until a stop condition is reached.",
+              "prompt": "What is the time complexity of binary search on a sorted array of n elements?",
+              "explanation": "Binary search cuts the remaining search space in half each step, which leads to logarithmic time.",
               "difficulty": 1,
               "options": [
-                { "id": "a", "text": "Loop" },
-                { "id": "b", "text": "Constant" },
-                { "id": "c", "text": "Comment" }
+                { "id": "a", "text": "O(n)" },
+                { "id": "b", "text": "O(log n)" },
+                { "id": "c", "text": "O(n log n)" },
+                { "id": "d", "text": "O(1)" }
               ],
-              "correctOptionId": "a"
+              "correctOptionId": "b",
+              "concepts": ["binary-search", "time-complexity"],
+              "hint": "Think about what happens to the remaining search range after each comparison.",
+              "concreteExample": "A phone book lookup discards half the remaining pages each time you jump to the middle.",
+              "whyFollowUp": {
+                "question": "Why does halving the search space produce a logarithmic running time?",
+                "answer": "Because after k steps only n / 2^k candidates remain, so solving n / 2^k = 1 gives k = log2(n)."
+              },
+              "misconceptions": {
+                "a": "Linear search checks one element at a time. Binary search removes half the candidates with each comparison.",
+                "c": "O(n log n) is common for sorting, not for searching a sorted array by repeatedly halving the space.",
+                "d": "You usually need more than one comparison unless the middle element is the target immediately."
+              }
+            },
+            {
+              "id": "ex-1-q2",
+              "type": "ordering",
+              "prompt": "Order the steps for a standard binary search on a sorted array.",
+              "explanation": "You start with the full range, inspect the midpoint, and discard the half that cannot contain the target.",
+              "difficulty": 1,
+              "items": [
+                { "id": "a", "text": "Initialize left = 0 and right = n - 1" },
+                { "id": "b", "text": "Compute the midpoint" },
+                { "id": "c", "text": "Compare the midpoint value with the target" },
+                { "id": "d", "text": "Discard the impossible half of the range" }
+              ],
+              "correctOrder": ["a", "b", "c", "d"]
+            },
+            {
+              "id": "ex-1-q3",
+              "type": "fill-blank",
+              "prompt": "To avoid overflow, compute the midpoint as left + (right - ______) / 2.",
+              "explanation": "Using right - left avoids summing two potentially large integers directly.",
+              "difficulty": 1,
+              "template": "left + (right - ______) / 2",
+              "acceptedAnswers": ["left"]
             }
           ]
         }
