@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "course": {
+    "id": "example-algorithms",
+    "title": "Example Algorithms Course",
+    "icon": "🧠",
+    "description": "A minimal sample course package for the open course repository.",
+    "version": "1.0.0"
+  },
+  "patterns": [
+    {
+      "id": "example-algorithms-intro",
+      "title": "Algorithm Warmup",
+      "category": "example-algorithms",
+      "icon": "🔁",
+      "description": "A small example pattern used to validate repository structure.",
+      "prerequisites": [],
+      "difficulty": "beginner",
+      "version": "1.0.0",
+      "lessons": [
+        {
+          "id": "example-algorithms-intro-lesson-1",
+          "patternId": "example-algorithms-intro",
+          "title": "Recognize a Loop",
+          "order": 1,
+          "intro": "This lesson exists only as a sample payload for repository validation.",
+          "questions": [
+            {
+              "id": "example-algorithms-q1",
+              "type": "multiple-choice",
+              "prompt": "Which pattern usually repeats work until a condition is met?",
+              "explanation": "Loops repeat work until a stop condition is reached.",
+              "difficulty": 1,
+              "options": [
+                { "id": "a", "text": "Loop" },
+                { "id": "b", "text": "Constant" },
+                { "id": "c", "text": "Comment" }
+              ],
+              "correctOptionId": "a"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
